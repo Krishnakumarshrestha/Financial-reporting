@@ -1,0 +1,89 @@
+---
+title: "Financial reporting Using R"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+	echo = FALSE,
+	message = FALSE,
+	warning = FALSE
+)
+
+source("data.R")
+```
+
+
+# Income Statement 
+
+
+
+```{r}
+final_kable  <- final %>% 
+
+
+  knitr::kable("latex", booktabs = T, longtable = T, align = c("l","r")) %>%
+
+ kableExtra::kable_styling(
+    latex_options = c("scale_down"),
+    position = "left", full_width = T
+  )  %>% 
+ kableExtra::kable_styling(font_size = 12) %>% 
+
+  
+ kableExtra::row_spec(4, bold = T) %>% 
+  kableExtra::row_spec(7, bold = T) %>% 
+  kableExtra::row_spec(8, bold = T) %>% 
+  kableExtra::row_spec(11, bold = T) %>% 
+  kableExtra::row_spec(12, bold = T) %>% 
+  kableExtra::row_spec(16, bold = T) %>% 
+  kableExtra::row_spec(17, bold = T) %>% 
+
+  kableExtra::pack_rows(group_label = "Interest Income", start_row = 1, end_row = 4) %>% 
+  kableExtra::pack_rows(group_label = "Interest Expense", start_row = 5, end_row = 8) %>% 
+  kableExtra::pack_rows(group_label = "Noninterest Income", start_row = 9, end_row = 12) %>% 
+  kableExtra::pack_rows(group_label = "Noninterest Expense", start_row = 13, end_row = 16)
+
+final_kable
+```
+
+
+\newpage
+
+
+# Income statement  Trend 
+
+```{r}
+final_kable  <- final1 %>% 
+  
+  knitr::kable("latex", booktabs = T, longtable = T, align = c("l","r","r","r","r","r")) %>%
+
+ kableExtra::kable_styling(
+    latex_options = c("scale_down"),
+    position = "left", full_width = T
+  )  %>% 
+  
+  kableExtra::column_spec(1,  width = "16em") %>%
+  kableExtra::column_spec(2,  width = "8em") %>%
+  kableExtra::column_spec(3,  width = "8em") %>%
+  kableExtra::column_spec(4,  width = "8em") %>% 
+  kableExtra::column_spec(5,  width = "8em") %>% 
+  kableExtra::column_spec(6,  width = "8em") %>% 
+
+  
+  kableExtra::row_spec(4, bold = T) %>% 
+  kableExtra::row_spec(7, bold = T) %>% 
+  kableExtra::row_spec(8, bold = T) %>% 
+  kableExtra::row_spec(11, bold = T) %>% 
+  kableExtra::row_spec(12, bold = T) %>% 
+  kableExtra::row_spec(16, bold = T) %>% 
+  kableExtra::row_spec(17, bold = T) %>% 
+
+  kableExtra::pack_rows(group_label = "Interest Income", start_row = 1, end_row = 4) %>% 
+  kableExtra::pack_rows(group_label = "Interest Expense", start_row = 5, end_row = 8) %>% 
+  kableExtra::pack_rows(group_label = "Noninterest Income", start_row = 9, end_row = 12) %>% 
+  kableExtra::pack_rows(group_label = "Noninterest Expense", start_row = 13, end_row = 16)
+
+final_kable
+```
+
